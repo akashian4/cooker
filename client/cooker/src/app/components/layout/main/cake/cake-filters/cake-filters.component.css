@@ -1,0 +1,17 @@
+.list-group-item.active {
+  background: #16a085;
+  border: 0px;
+}
+/* .list-group-item.active h6 {
+  color: #fff;
+} */
+
+.btn-primary{
+  background-color: #16a085 !important;
+}
+.r{
+  color: #16a085;
+  background-color: aqua;
+  height: 20px;
+  width: 20px;
+}

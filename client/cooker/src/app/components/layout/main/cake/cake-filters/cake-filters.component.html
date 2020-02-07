@@ -1,0 +1,123 @@
+<div class="div">
+  <!-- Card -->
+  <mdb-card class="m-0">
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4 class="text-right">جستجوی نام کیک</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text >
+
+        <div class="md-form ">
+          <input mdbInput type="text" id="form1" class="form-control text-right" [(ngModel)]="searchString">
+          <label for="form1">نام کیک</label>
+        </div>
+
+      </mdb-card-text>
+
+      <a class="ml-3" mdbBtn color="primary" mdbWavesEffect (click)="onClickSearch()">Search</a>
+    </mdb-card-body>
+  </mdb-card>
+  <!-- Card -->
+
+  <!-- Card -->
+  <mdb-card class="m-0 mt-4">
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4 class="text-right">انتخاب فرشنده</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text>
+
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action flex-column align-items-start "
+            *ngFor="let item of filteredCategoryList" [ngClass]="{'active': selectedCategory == item.id}"
+            (click)=onSelectCategory(item)>
+            <div class="d-flex w-100 justify-content-between ">
+              <h6 class="mb-1 text-dark">{{item.name}}</h6>
+              <!-- <small>3 days ago</small> -->
+            </div>
+          </a>
+        </div>
+      </mdb-card-text>
+    </mdb-card-body>
+  </mdb-card>
+  <!-- Card -->
+
+  <!-- Card -->
+  <mdb-card class="m-0 mt-4">
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4 class="text-right mb-4">انتخاب محدوده قیمت</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text>
+
+        <div class="custom-control custom-radio mt-1">
+          <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios" mdbInput>
+          <label class="custom-control-label" for="defaultUnchecked">کمتر از 30 تومان</label>
+        </div>
+
+        <div class="custom-control custom-radio mt-1">
+          <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked
+            mdbInput>
+          <label class="custom-control-label" for="defaultChecked">بین 30 تا 35 هزار تومان</label>
+        </div>
+
+        <div class="custom-control custom-radio mt-1">
+          <input type="radio" class="custom-control-input" id="defaultChecked1" name="defaultExampleRadios"
+            mdbInput>
+          <label class="custom-control-label" for="defaultChecked1">بین 35 تا 40 هزار تومان</label>
+        </div>
+
+        <div class="custom-control custom-radio mt-1">
+          <input type="radio" class="custom-control-input" id="defaultChecked2" name="defaultExampleRadios"
+            mdbInput>
+          <label class="custom-control-label" for="defaultChecked2">بیش از 40 هزار تومان</label>
+        </div>
+
+      </mdb-card-text>
+    </mdb-card-body>
+  </mdb-card>
+
+  <!-- Card -->
+
+
+  <!-- Card -->
+  <mdb-card class="m-0 mt-4">
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4 class="text-right">دسته بندی</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text>
+
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action flex-column align-items-start "
+            *ngFor="let item of filteredCategoryList" [ngClass]="{'active': selectedCategory == item.id}"
+            (click)=onSelectCategory(item)>
+            <div class="d-flex w-100 justify-content-between ">
+              <h6 class="mb-1 text-dark">{{item.name}}</h6>
+              <!-- <small>3 days ago</small> -->
+            </div>
+          </a>
+        </div>
+      </mdb-card-text>
+    </mdb-card-body>
+  </mdb-card>
+
+  <!-- Card -->
+
+</div>

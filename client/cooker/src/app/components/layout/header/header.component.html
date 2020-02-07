@@ -1,0 +1,191 @@
+<div class="navbar navbar-expand-lg  scrolling-navbar header-nav mt-2 ">
+  <div class="container">
+
+    <ul class="navbar-nav mr-auto">
+      <ng-container *ngIf="isLogged; else elseTemplate">
+
+        <li class="nav-item mr-4" mdbDropdown>
+          <a class="nav-link waves-effect" [routerLink]="['/my-account']">
+            <strong class="mr-2">سلام</strong>
+            <span class="p-1">ایوالفضل کاشیان</span>
+          </a>
+          <div>
+            <a class="nav-link waves-effect" (click)="onLogout()">
+              <i class="fas fa-sign-in-alt mr-1 pink-text"></i>
+              <strong class="pink-text ml-4">خروج از سیستم</strong>
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item mt-2 " mdbDropdown>
+          <a class="nav-link waves-effect dropdown-toggle btn text-dark" mdbDropdownToggle>
+            <!-- [routerLink]="['shopping-cart']" -->
+            <span class="badge red z-depth-1 mr-1"> {{itemCount}} </span>
+            <mdb-icon fas icon="shopping-cart " class="red-text"></mdb-icon>
+            <span class="clearfix d-none d-sm-inline-block"> سبد خرید </span>
+          </a>
+          <app-small-cart class="dropdown-menu dropdown-cart mr-5 pb-0" *ngIf="itemCount != 0">
+          </app-small-cart>
+        </li>
+
+      </ng-container>
+
+      <ng-template #elseTemplate>
+
+        <li class="nav-item " mdbDropdown>
+          <!-- <a class="nav-link waves-effect" [routerLink]="['/customer/login']"> -->
+          <a class="nav-link waves-effect " mdbDropdownToggle>
+            <strong class="pink-text">ورود</strong>
+          </a>
+          <app-small-login class="dropdown-menu dropdown-menu-right dropdown-cart mr-5 pb-0">
+          </app-small-login>
+        </li>
+        <a class="nav-link waves-effect">
+          <strong>/</strong>
+        </a>
+        <li class="nav-item" mdbDropdown>
+          <a class="nav-link waves-effect" mdbDropdownToggle>
+            <strong class="pink-text">ثبت نام</strong>
+          </a>
+          <app-small-register class="dropdown-menu dropdown-menu-right dropdown-cart mr-5 pb-0">
+          </app-small-register>
+        </li>
+      </ng-template>
+    </ul>
+
+
+    <!-- <div class="btn-group mr-5">
+      <button type="button" class="btn btn-info">فروشگاه های من</button>
+      <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split"
+        data-toggle="dropdown"></button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Linsadsak 1</a>
+        <h6 class="dropdown-header">Dropdown ddheader</h6>
+        <a class="dropdown-item" href="#">Linsadsak 1</a>
+        <a class="dropdown-item" href="#">Linkasdasd 2</a>
+        <h6 class="dropdown-header">Dropdown ddheader</h6>
+        <a class="dropdown-item" href="#">Linsadsak 1</a>
+        <a class="dropdown-item" href="#">Linkasdasd 2</a>
+      </div>
+    </div> -->
+
+    <div class="btn-group mr-5" mdbDropdown>
+      <button type="button" mdbBtn color="info" class="waves-light" mdbWavesEffect>Action</button>
+      <button type="button" mdbDropdownToggle mdbBtn color="info"
+        class="dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+      <div class="dropdown-menu">
+        <h6 class="dropdown-header">Dropdown ddheader</h6>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <h6 class="dropdown-header">Dropdown ddheader</h6>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+
+
+    <!-- Brand -->
+    <h5 class="mr-3">سامانه هوشمند سفارش کیک انلاین</h5>
+    <a class="navbar-brand waves-effect" [routerLink]="['/']">
+      <img src="../../../../assets/logo.png" height="120" alt="" />
+    </a>
+
+  </div>
+</div>
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light header-nav mt-2 mb-3 scrolling-navbar ">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+
+    </ul>
+
+    <nav class="navbar navbar-light bg-light mr-auto">
+      <form class="form-inline">
+        <input class="form-control ml-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">جستجو</button>
+      </form>
+    </nav>
+
+  </div>
+</nav> -->
+
+<!--Navbar-->
+<div id="navbar">
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary header-nav mt-2 mb-3  "
+    [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#"><b>(Cooker)</b></a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" mdbWavesEffect>
+          <a class="nav-link" routerLink="/">صفحه اصلی <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" mdbWavesEffect>
+          <a class="nav-link" routerLink="/cake">کیک تولد</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" mdbWavesEffect>
+          <a class="nav-link" routerLink="/cookie">شیرینی</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" mdbWavesEffect>
+          <a class="nav-link" routerLink="/birthdaySupplies">لوازم جشن تولد</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" mdbWavesEffect>
+          <a class="nav-link" routerLink="/confectionarysAccessories">لوازم قنادی</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" mdbWavesEffect>
+          <a class="nav-link" routerLink="/dessert">دسر</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" mdbWavesEffect>
+          <a class="nav-link" routerLink="/chocolate">شکلات</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']" mdbWavesEffect>
+          <a class="nav-link" routerLink="/gallery">گالری تصاویر</a>
+        </li>
+
+        <!-- Dropdown -->
+        <!-- <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            Basic dropdown<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
+          </div>
+        </li> -->
+
+      </ul>
+      <!-- Links -->
+
+      <!-- Search form -->
+      <mdb-navbar-brand>
+        <form class="form-inline waves-light" mdbWavesEffect>
+          <div class="md-form my-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button mdbBtn color="success" outline="true" size="sm" class="my-0 waves-light" type="submit"
+              mdbWavesEffect>Search</button>
+          </div>
+        </form>
+      </mdb-navbar-brand>
+    </links>
+    <!-- Collapsible content -->
+
+  </mdb-navbar>
+</div>
+
+<!--/.Navbar-->
