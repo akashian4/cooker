@@ -276,7 +276,7 @@ let addDailyShowcase = async (req, res) => {
           img: req.body.img
         };
 
-        const addDailyShowcase= await dbFunction.createDailyShowcase(DailyShowcaseData);
+        const addDailyShowcase = await dbFunction.createDailyShowcase(DailyShowcaseData);
         if (addDailyShowcase) {
           res.status(200).json({ message: 'addDailyShowcase registered successfully!' });
         } else {
@@ -352,7 +352,7 @@ let addSpecialdiscount = async (req, res) => {
           img: req.body.img
         };
 
-        const addSpecialdiscount= await dbFunction.createSpecialdiscount(SpecialdiscountData);
+        const addSpecialdiscount = await dbFunction.createSpecialdiscount(SpecialdiscountData);
         if (addSpecialdiscount) {
           res.status(200).json({ message: 'addSpecialdiscount registered successfully!' });
         } else {
@@ -405,6 +405,7 @@ let readAllSpecialdiscounts = async (req, res) => {
 };
 
 
+
 //Newest
 /* API to add Newest */
 let addNewest = async (req, res) => {
@@ -427,7 +428,7 @@ let addNewest = async (req, res) => {
           img: req.body.img
         };
 
-        const addNewest= await dbFunction.createNewest(NewestData);
+        const addNewest = await dbFunction.createNewest(NewestData);
         if (addNewest) {
           res.status(200).json({ message: 'addNewest registered successfully!' });
         } else {
@@ -484,10 +485,32 @@ let readAllNewests = async (req, res) => {
 //Cake
 /* API to add Cake */
 let addCake = async (req, res) => {
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.name || !req.body.baseWeight) {
     res.status(401).json({ message: 'Parameters are missing 1' });
   } else {
     try {
+      let name = {
+        name: req.body.name
+      };
+
+      const checkCake = await dbFunction.getCake(name);
+
+      if (checkCake && checkCake.length == 1) {
+        res.status(401).json({ message: 'name already registered' });
+      } else {
+        let CakeData = {
+          name: req.body.name,
+          baseWeight: req.body.baseWeight,
+          grouping: req.body.grouping
+        };
+
+        const addCake = await dbFunction.createCake(CakeData);
+        if (addCake) {
+          res.status(200).json({ message: 'addCake registered successfully!' });
+        } else {
+          res.status(403).json({ message: 'Something went wrong' });
+        }
+      }
 
     } catch (error) {
       res.status(401).json({ message: 'Something went wrong 2', error: error });
@@ -497,36 +520,164 @@ let addCake = async (req, res) => {
 
 /* API to delete Cake */
 let deleteCake = async (req, res) => {
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.name) {
     res.status(401).json({ message: 'Parameters are missing 1' });
   } else {
     try {
-
+      let name = {
+        name: req.body.name
+      };
+      const checkCake = await dbFunction.getCake(name);
+      if (checkCake && checkCake.length == 1) {
+        const deleteCake = await dbFunction.removeCake(name);
+        if (deleteCake) {
+          console.log(deleteCake);
+          res.status(200).json({ message: 'deleted successfully!' });
+        } else {
+          res.status(403).json({ message: 'Something went wrong' });
+        }
+      } else {
+        res.status(401).json({ message: 'name in not exist' });
+      }
     } catch (error) {
       res.status(401).json({ message: 'Something went wrong 2', error: error });
     }
   }
 };
 
-/* API to read Cakes */
-let readCake = async (req, res) => {
-  if (!req.body.username || !req.body.password) {
-    res.status(401).json({ message: 'Parameters are missing 1' });
-  } else {
-    try {
-
-    } catch (error) {
-      res.status(401).json({ message: 'Something went wrong 2', error: error });
-    }
+/* API to read All Cakess */
+let readAllCakes = async (req, res) => {
+  try {
+    const Cakess = await dbFunction.getAllCakes();
+    res.status(200).json(Cakess);
+  } catch (error) {
+    res.status(401).json({ message: 'Something went wrong', error: error });
   }
 };
 
 /* API to edit Cake */
 let editCake = async (req, res) => {
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.name || !req.body.baseWeight || !req.body.grouping) {
     res.status(401).json({ message: 'Parameters are missing 1' });
   } else {
     try {
+      let name = {
+        _id: req.body._id
+      };
+
+      const checkCake = await dbFunction.getCake(name);
+      if (checkCake && checkCake.length == 1) {
+        let dataSet = {
+          name: req.body.name,
+          baseWeight: req.body.baseWeight,
+          grouping: req.body.grouping
+        }
+        await dbFunction.updateCake(name, dataSet);
+        const Cake = await dbFunction.getCake(name);
+        res.status(200).json(Cake);
+      } else {
+        res.status(401).json({ message: 'name in not exist' });
+
+      }
+
+    } catch (error) {
+      res.status(401).json({ message: 'Something went wrong 2', error: error });
+    }
+  }
+};
+
+
+
+//Grouping Value
+/* API to add Grouping Value */
+let addGroupingValue = async (req, res) => {
+  if (!req.body.value) {
+    res.status(401).json({ message: 'Parameters are missing 1' });
+  } else {
+    try {
+      let value = {
+        value: req.body.value
+      };
+
+      const checkGroupingValue = await dbFunction.getGroupingValue(value);
+      if (checkGroupingValue && checkGroupingValue.length == 1) {
+        res.status(401).json({ message: 'valur already registered' });
+      } else {
+        let GroupingValueData = value;
+        const addGroupingValue = await dbFunction.createGroupingValue(GroupingValueData);
+        if (addGroupingValue) {
+          res.status(200).json({ message: 'addGroupingValue registered successfully!' });
+        } else {
+          res.status(403).json({ message: 'Something went wrong' });
+        }
+      }
+
+    } catch (error) {
+      res.status(401).json({ message: 'Something went wrong 2', error: error });
+    }
+  }
+
+};
+
+/* API to delete Grouping Value */
+let deleteGroupingValue = async (req, res) => {
+  if (!req.body.value) {
+    res.status(401).json({ message: 'Parameters are missing 1' });
+  } else {
+    try {
+      let value = {
+        value: req.body.value
+      };
+      const checkValue = await dbFunction.getGroupingValue(value);
+      if (checkValue && checkValue.length == 1) {
+        const deleteCake = await dbFunction.removeGroupingValue(value);
+        if (deleteCake) {
+          console.log(deleteCake);
+          res.status(200).json({ message: 'deleted successfully!' });
+        } else {
+          res.status(403).json({ message: 'Something went wrong' });
+        }
+      } else {
+        res.status(401).json({ message: 'value in not exist' });
+      }
+    } catch (error) {
+      res.status(401).json({ message: 'Something went wrong 2', error: error });
+    }
+  }
+};
+
+/* API to read All GroupingValue */
+let readAllGroupingValues = async (req, res) => {
+  try {
+    const GroupingValues = await dbFunction.getAllGroupingValues();
+    res.status(200).json(GroupingValues);
+  } catch (error) {
+    res.status(401).json({ message: 'Something went wrong', error: error });
+  }
+};
+
+/* API to edit Grouping Value */
+let editGroupingValue = async (req, res) => {
+  if (!req.body.value) {
+    res.status(401).json({ message: 'Parameters are missing 1' });
+  } else {
+    try {
+      let value = {
+        _id: req.body._id
+      };
+
+      const checkValue = await dbFunction.getGroupingValue(value);
+      if (checkValue && checkValue.length == 1) {
+        let dataSet = {
+          value:req.body.value
+        };
+        await dbFunction.updateGroupingValue(value, dataSet);
+        const groupingValue = await dbFunction.getGroupingValue(value);
+        res.status(200).json(groupingValue);
+      } else {
+        res.status(401).json({ message: 'value in not exist' });
+
+      }
 
     } catch (error) {
       res.status(401).json({ message: 'Something went wrong 2', error: error });
@@ -558,7 +709,10 @@ module.exports = {
   readAllNewests: readAllNewests,
   addCake: addCake,
   deleteCake: deleteCake,
-  readCake: readCake,
-  editCake: editCake
-
+  readAllCakes: readAllCakes,
+  editCake: editCake,
+  addGroupingValue: addGroupingValue,
+  deleteGroupingValue: deleteGroupingValue,
+  readAllGroupingValues: readAllGroupingValues,
+  editGroupingValue: editGroupingValue
 };

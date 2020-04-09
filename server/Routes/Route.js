@@ -43,9 +43,15 @@ router.get('/readAllNewests', Service.readAllNewests);
 /* Cake */
 router.post('/addCake', Service.addCake);
 router.delete('/deleteCake', Service.deleteCake);
-router.get('/readCake', Service.readCake);
+router.get('/readAllCakes', Service.readAllCakes);
 router.put('/editCake', Service.editCake);
 
+
+/* Grouping Value */
+router.post('/addGroupingValue', Service.addGroupingValue);
+router.delete('/deleteGroupingValue', Service.deleteGroupingValue);
+router.get('/readAllGroupingValue', Service.readAllGroupingValues);
+router.put('/editGroupingValues', Service.editGroupingValue);
 
 
 module.exports = router;

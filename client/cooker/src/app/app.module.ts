@@ -21,8 +21,6 @@ import { GalleryComponent } from './components/layout/main/gallery/gallery.compo
 import { GuideComponent } from './components/guide/guide.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { SmallCartComponent } from './components/small-cart/small-cart.component';
-import { SmallLoginComponent } from './components/small-login/small-login.component';
-import { SmallRegisterComponent } from './components/small-register/small-register.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { CakeListComponent } from './components/layout/main/cake/cake-list/cake-list.component';
 import { CakeFiltersComponent } from './components/layout/main/cake/cake-filters/cake-filters.component';
@@ -32,6 +30,8 @@ import { ChocolateComponent } from './components/layout/main/chocolate/chocolate
 import { DessertComponent } from './components/layout/main/dessert/dessert.component';
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 import { CakeDetailsComponent } from './components/layout/main/cake/cake-details/cake-details.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +47,6 @@ import { CakeDetailsComponent } from './components/layout/main/cake/cake-details
     GuideComponent,
     AboutUsComponent,
     SmallCartComponent,
-    SmallLoginComponent,
-    SmallRegisterComponent,
     MyAccountComponent,
     CakeListComponent,
     CakeFiltersComponent,
@@ -57,7 +55,9 @@ import { CakeDetailsComponent } from './components/layout/main/cake/cake-details
     ChocolateComponent,
     DessertComponent,
     CakeDetailsComponent,
-    AddToCartComponent
+    AddToCartComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

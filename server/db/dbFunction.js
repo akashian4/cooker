@@ -1,4 +1,4 @@
-var { Customer, Seller, Carousel, DailyShowcase,Specialdiscount,Newest } = require('../Models/Models');
+var { Customer, Seller, Carousel, DailyShowcase, Specialdiscount, Newest, Cake, GroupingValue } = require('../Models/Models');
 var jwt = require('jsonwebtoken');
 
 //read Customer
@@ -60,6 +60,28 @@ const getSpecialdiscount = specialdiscount =>
 const getNewest = newest =>
     new Promise((resolve, reject) => {
         Newest.find(newest)
+            .then(client => resolve(client))
+            .catch(err => {
+                reject(err);
+                console.log(err);
+            });
+    });
+
+//read Cake
+const getCake = cake =>
+    new Promise((resolve, reject) => {
+        Cake.find(cake)
+            .then(client => resolve(client))
+            .catch(err => {
+                reject(err);
+                console.log(err);
+            });
+    });
+
+//read Grouping Value
+const getGroupingValue = groupingValue =>
+    new Promise((resolve, reject) => {
+        GroupingValue.find(groupingValue)
             .then(client => resolve(client))
             .catch(err => {
                 reject(err);
@@ -130,6 +152,28 @@ const getAllSpecialdiscounts = () =>
 const getAllNewests = () =>
     new Promise((resolve, reject) => {
         Newest.find({})
+            .then(client => resolve(client))
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            });
+    });
+
+//read all Cakes
+const getAllCakes = () =>
+    new Promise((resolve, reject) => {
+        Cake.find({})
+            .then(client => resolve(client))
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            });
+    });
+
+//read all Grouping Value
+const getAllGroupingValues = () =>
+    new Promise((resolve, reject) => {
+        GroupingValue.find({})
             .then(client => resolve(client))
             .catch(err => {
                 console.log(err);
@@ -237,6 +281,32 @@ const createNewest = newest => {
     });
 };
 
+//create new Cake
+const createCake = cake => {
+    return new Promise((resolve, reject) => {
+        new Cake(cake)
+            .save()
+            .then(client => resolve(client))
+            .catch(err => {
+                reject(err);
+                console.log(err);
+            });
+    });
+};
+
+//create new Grouping Value
+const createGroupingValue = groupingValue => {
+    return new Promise((resolve, reject) => {
+        new GroupingValue(groupingValue)
+            .save()
+            .then(client => resolve(client))
+            .catch(err => {
+                reject(err);
+                console.log(err);
+            });
+    });
+};
+
 
 
 
@@ -277,29 +347,87 @@ const removeNewest = (newest) =>
             .catch(err => reject(err));
     });
 
+//delete GroupingValue
+const removeGroupingValue = (groupingValue) =>
+    new Promise((resolve, reject) => {
+        GroupingValue.findOneAndRemove(groupingValue)
+            .exec()
+            .then(client => resolve(client))
+            .catch(err => reject(err));
+    });
+
+//delete Cake
+const removeCake = (cake) =>
+    new Promise((resolve, reject) => {
+        Cake.findOneAndRemove(cake)
+            .exec()
+            .then(client => resolve(client))
+            .catch(err => reject(err));
+    });
+
+
+
+
+
+//update the Cake
+const updateCake = (criteria, dataToSet) =>
+  new Promise((resolve, reject) => {
+    Cake.findOneAndUpdate(criteria, dataToSet)
+      .then(client => resolve(client))
+      .catch(err => reject(err));
+  });
+
+//update the GroupingValue
+const updateGroupingValue = (criteria, dataToSet) =>
+  new Promise((resolve, reject) => {
+    GroupingValue.findOneAndUpdate(criteria, dataToSet)
+      .then(client => resolve(client))
+      .catch(err => reject(err));
+  });
+
+
+
 
 
 module.exports = {
     createCustomer: createCustomer,
-    createSeller: createSeller,
     getCustomer: getCustomer,
-    getSeller: getSeller,
     getAllCustomers: getAllCustomers,
+
+    createSeller: createSeller,
+    getSeller: getSeller,
     getAllSelers: getAllSelers,
+
     createCarousel: createCarousel,
     getCarousel: getCarousel,
     removeCarousel: removeCarousel,
     getAllCarousels: getAllCarousels,
+
     getDailyShowcase: getDailyShowcase,
     createDailyShowcase: createDailyShowcase,
-    removeDailyShowcase:removeDailyShowcase,
-    getAllDailyShowcase:getAllDailyShowcase,
-    getSpecialdiscount:getSpecialdiscount,
-    getAllSpecialdiscounts:getAllSpecialdiscounts,
-    createSpecialdiscount:createSpecialdiscount,
-    removeSpecialdiscount:removeSpecialdiscount,
-    getNewest:getNewest,
-    getAllNewests:getAllNewests,
-    createNewest:createNewest,
-    removeNewest:removeNewest
+    getAllDailyShowcase: getAllDailyShowcase,
+    removeDailyShowcase: removeDailyShowcase,
+
+    getSpecialdiscount: getSpecialdiscount,
+    getAllSpecialdiscounts: getAllSpecialdiscounts,
+    createSpecialdiscount: createSpecialdiscount,
+    removeSpecialdiscount: removeSpecialdiscount,
+
+    getNewest: getNewest,
+    getAllNewests: getAllNewests,
+    createNewest: createNewest,
+    removeNewest: removeNewest,
+
+    getCake: getCake,
+    getAllCakes: getAllCakes,
+    createCake: createCake,
+    removeCake: removeCake,
+    updateCake:updateCake,
+    
+    getGroupingValue: getGroupingValue,
+    getAllGroupingValues: getAllGroupingValues,
+    createGroupingValue: createGroupingValue,
+    removeGroupingValue: removeGroupingValue,
+    updateGroupingValue:updateGroupingValue
+
 }

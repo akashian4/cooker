@@ -150,6 +150,32 @@ let NewestSchema = new Schema({
     },
 });
 
+let CakeSchema = new Schema({
+    name: {
+        type: String,
+        default: null,
+        required: true
+    },
+    baseWeight: {
+        type: String,
+        default: null,
+        required: true
+    },
+    grouping: [{
+        name: {
+            type: String,
+            required: true,
+        }
+    }],
+});
+
+let GroupingValueSchema = new Schema({
+    value: {
+        type: String,
+        default: null,
+        required: true
+    }
+});
 
 CustomerSchema.statics.findByTokenCustomer = function (token) {
     let Customer = this;
@@ -189,12 +215,16 @@ let Carousel = mongoose.model('Carousel', CarouselSchema);
 let DailyShowcase = mongoose.model('DailyShowcase', DailyShowcaseSchema);
 let Specialdiscount = mongoose.model('Specialdiscount', SpecialdiscountSchema);
 let Newest = mongoose.model('Newest', NewestSchema);
+let Cake = mongoose.model('Cake', CakeSchema);
+let GroupingValue = mongoose.model('GroupingValue', GroupingValueSchema);
 
 module.exports = {
     Customer: Customer,
     Seller: Seller,
     Carousel: Carousel,
     DailyShowcase: DailyShowcase,
-    Specialdiscount:Specialdiscount,
-    Newest:Newest
+    Specialdiscount: Specialdiscount,
+    Newest: Newest,
+    Cake: Cake,
+    GroupingValue: GroupingValue
 };

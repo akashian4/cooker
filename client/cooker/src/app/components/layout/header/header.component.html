@@ -33,23 +33,19 @@
 
       <ng-template #elseTemplate>
 
-        <li class="nav-item " mdbDropdown>
+        <li class="nav-item " >
           <!-- <a class="nav-link waves-effect" [routerLink]="['/customer/login']"> -->
-          <a class="nav-link waves-effect " mdbDropdownToggle>
+          <a class="nav-link waves-effect " routerLink="/login">
             <strong class="pink-text">ورود</strong>
           </a>
-          <app-small-login class="dropdown-menu dropdown-menu-right dropdown-cart mr-5 pb-0">
-          </app-small-login>
         </li>
         <a class="nav-link waves-effect">
           <strong>/</strong>
         </a>
-        <li class="nav-item" mdbDropdown>
-          <a class="nav-link waves-effect" mdbDropdownToggle>
+        <li class="nav-item" >
+          <a class="nav-link waves-effect" routerLink="/register">
             <strong class="pink-text">ثبت نام</strong>
           </a>
-          <app-small-register class="dropdown-menu dropdown-menu-right dropdown-cart mr-5 pb-0">
-          </app-small-register>
         </li>
       </ng-template>
     </ul>

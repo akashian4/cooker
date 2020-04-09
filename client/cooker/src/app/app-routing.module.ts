@@ -13,6 +13,8 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import { DessertComponent } from './components/layout/main/dessert/dessert.component';
 import { ChocolateComponent } from './components/layout/main/chocolate/chocolate.component';
 import { CakeDetailsComponent } from './components/layout/main/cake/cake-details/cake-details.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [
@@ -34,6 +36,8 @@ const routes: Routes = [
       { path: 'gallery', component: GalleryComponent },
       { path: 'chocolate', component: ChocolateComponent },
       { path: 'dessert', component: DessertComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
 
     ]
   },

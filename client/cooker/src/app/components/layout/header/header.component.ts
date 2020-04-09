@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   itemCount = 1;
 
   constructor() {
-    this.isLogged = true;
+    this.isLogged = false;
   }
 
   ngOnInit() {
