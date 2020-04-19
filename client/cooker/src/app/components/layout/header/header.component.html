@@ -6,8 +6,8 @@
 
         <li class="nav-item mr-4" mdbDropdown>
           <a class="nav-link waves-effect" [routerLink]="['/my-account']">
-            <strong class="mr-2">سلام</strong>
-            <span class="p-1">ایوالفضل کاشیان</span>
+            <!-- <strong class="mr-2">سلام </strong> -->
+            <span class="ml-4">ایوالفضل کاشیان</span>
           </a>
           <div>
             <a class="nav-link waves-effect" (click)="onLogout()">
@@ -66,18 +66,22 @@
       </div>
     </div> -->
 
-    <div class="btn-group mr-5" mdbDropdown>
-      <button type="button" mdbBtn color="info" class="waves-light" mdbWavesEffect>Action</button>
+    <div class="btn-group mr-5"  mdbDropdown>
+      <button type="button" mdbBtn color="info" class="waves-light" mdbWavesEffect>فروشگاه ها</button>
       <button type="button" mdbDropdownToggle mdbBtn color="info"
         class="dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
       <div class="dropdown-menu">
+        <!-- <h6 class="dropdown-header">محبوب ترن ها</h6> -->
+        <a class="dropdown-item" >شیرینی سرای امین</a>
+        <a class="dropdown-item" >شیرینی سرای مادر</a>
+        <a class="dropdown-item" >شیرینی سرای گلها</a>
+        <a class="dropdown-item" >شیرینی سرای اندولس</a>
+        <a class="dropdown-item" >شیرینی سرای لبخند</a>
+        <a class="dropdown-item" >شیرینی سرای خوشمزه</a>
+        <a class="dropdown-item" >شیرینی سرای بردران</a>
+        <!-- <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Dropdown ddheader</h6>
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <h6 class="dropdown-header">Dropdown ddheader</h6>
-        <a class="dropdown-item" href="#">Separated link</a>
+        <a class="dropdown-item" href="#">Separated link</a> -->
       </div>
     </div>
 

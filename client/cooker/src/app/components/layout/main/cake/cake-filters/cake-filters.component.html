@@ -62,7 +62,7 @@
       <!--Text-->
       <mdb-card-text>
 
-        <div class="custom-control custom-radio mt-1">
+        <div class="custom-control custom-radio mt-1 ">
           <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios" mdbInput>
           <label class="custom-control-label" for="defaultUnchecked">کمتر از 30 تومان</label>
         </div>
@@ -106,10 +106,10 @@
 
         <div class="list-group">
           <a class="list-group-item list-group-item-action flex-column align-items-start "
-            *ngFor="let item of filteredCategoryList" [ngClass]="{'active': selectedCategory == item.id}"
-            (click)=onSelectCategory(item)>
+            *ngFor="let i of filteredCategoryList2" [ngClass]="{'active': selectedCategory2 == i.id}"
+            (click)=onSelectCategory2(i)>
             <div class="d-flex w-100 justify-content-between ">
-              <h6 class="mb-1 text-dark">{{item.name}}</h6>
+              <h6 class="mb-1 text-dark">{{i.name}}</h6>
               <!-- <small>3 days ago</small> -->
             </div>
           </a>

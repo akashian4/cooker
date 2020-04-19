@@ -44,12 +44,14 @@ img {
 
 
 #product-popular, #product-bestselling, #product-similar {
-  font-size: 16px;
+  font-size: 25px;
   height: 20px;
   line-height: 20px;
   width: 1092px;
-  margin: 20px auto;
-  margin-top: 40px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  padding-right: 65px;
   font-weight: bold;
+  text-align: right;
 }
 

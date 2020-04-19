@@ -28,7 +28,7 @@ import { CakeCardComponent } from './components/layout/main/cake/cake-card/cake-
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { ChocolateComponent } from './components/layout/main/chocolate/chocolate.component';
 import { DessertComponent } from './components/layout/main/dessert/dessert.component';
-import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
+
 import { CakeDetailsComponent } from './components/layout/main/cake/cake-details/cake-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -55,7 +55,6 @@ import { RegisterComponent } from './components/register/register.component';
     ChocolateComponent,
     DessertComponent,
     CakeDetailsComponent,
-    AddToCartComponent,
     LoginComponent,
     RegisterComponent
   ],

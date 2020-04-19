@@ -2,40 +2,40 @@
   <!-- Default form register -->
   <form class="text-center border border-light p-3">
 
-    <p class="h4 mb-4">Sign up</p>
+    <p class="h4 mb-4">ثبت نام</p>
 
     <div class="form-row mb-4">
       <div class="col">
         <!-- First name -->
-        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="نام">
       </div>
       <div class="col">
         <!-- Last name -->
-        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="نام خانوادگی">
       </div>
     </div>
 
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="ایمیل">
 
     <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
+    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="رمز عبور"
       aria-describedby="defaultRegisterFormPasswordHelpBlock">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-      At least 8 characters and 1 digit
+      حداقل 8 کاراکتر
     </small>
 
     <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number"
+    <input type="text" id="defaultRegisterPhonePassword" class="form-control mb-5" placeholder="شماره تماس"
       aria-describedby="defaultRegisterFormPhoneHelpBlock">
-    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+    <!-- <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
       Optional - for two-step authentication
-    </small>
+    </small> -->
 
     <!-- Newsletter -->
     <div class="row">
       <div class="col-md-6 mx-auto d-flex justify-content-center">
-        <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
+        <mdb-checkbox [default]="true">ارسال خبرنامه سایت</mdb-checkbox>
       </div>
     </div>
 
@@ -43,7 +43,7 @@
     <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)='onclick()'>Sign in</button>
 
     <!-- Social register -->
-    <p>or sign up with:</p>
+    <p>یا ثبت نام با : </p>
 
     <a type="button" class="light-blue-text mx-2">
       <mdb-icon fab icon="facebook"></mdb-icon>
@@ -61,9 +61,9 @@
     <hr>
 
     <!-- Terms of service -->
-    <p>By clicking
+    <!-- <p>By clicking
       <em>Sign up</em> you agree to our
-      <a href="" target="_blank">terms of service</a></p>
+      <a href="" target="_blank">terms of service</a></p> -->
 
   </form>
   <!-- Default form register -->

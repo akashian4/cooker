@@ -9,9 +9,12 @@ import { Cake } from 'src/app/models/Cake';
 export class CakeCardComponent implements OnInit {
   @Input('cakeData') cakelist: Cake[];
 
-  constructor() { }
+
+
+  constructor() {}
 
   ngOnInit() {
+    console.log(this.cakelist);
   }
 
 }

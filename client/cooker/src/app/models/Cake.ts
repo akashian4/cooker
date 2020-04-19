@@ -5,5 +5,5 @@ export class Cake {
   primaryImage: string;
   secondaryImage: string;
   price: number;
-  descountedPrice: number;
+  minWeight: number;
 }

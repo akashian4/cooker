@@ -2,35 +2,35 @@
   <!-- Default form login -->
 <form class="text-center border border-light p-5">
 
-  <p class="h4 mb-4">Sign in</p>
+  <p class="h4 mb-4">ورود</p>
 
   <!-- Email -->
-  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="ایمیل">
 
   <!-- Password -->
-  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="رمز عبور">
 
   <div class="d-flex justify-content-around">
     <div>
       <!-- Remember me -->
-      <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
+      <mdb-checkbox [default]="true">رمز را بخاطر بسپار</mdb-checkbox>
     </div>
     <div>
       <!-- Forgot password -->
-      <a href="">Forgot password?</a>
+      <a href="">رمز را فراموش کرده ام</a>
     </div>
   </div>
 
   <!-- Sign in button -->
-  <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+  <button mdbBtn color="info" block="true" class="my-4" type="submit">ورود</button>
 
   <!-- Register -->
-  <p>Not a member?
-    <a href="">Register</a>
+  <p>تبت نام نکرده ام؟
+    <a routerLink="/register">ثبت نام</a>
   </p>
 
   <!-- Social login -->
-  <p>or sign in with:</p>
+  <p>یا ورود با :</p>
 
   <a type="button" class="light-blue-text mx-2">
     <mdb-icon fab icon="facebook"></mdb-icon>

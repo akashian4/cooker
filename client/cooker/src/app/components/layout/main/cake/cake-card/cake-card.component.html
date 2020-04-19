@@ -12,38 +12,30 @@
             <span class="product-discount-label">-10%</span> -->
   </div>
   <div class="product-content">
-    <span class="product-shipping">product.DepartmentName - product.CategoryName</span>
+    <!-- <span class="product-shipping">product.DepartmentName - product.CategoryName</span> -->
     <h3 class="title">
       <a [routerLink]="['cake-details', cakelist.cakeId]"><strong>
-          product.Name
+          {{cakelist.name}}
         </strong>
       </a>
     </h3>
     <div class="price">
-      product.Price
+      <p>${{cakelist.price}}</p>
     </div>
 
     <div class="row">
       <div class="col-md-6 py-1 px-1">
         <strong>
-          Size
-        </strong>
-        <!-- <select class="browser-default custom-select">
-          <option [value]="item.AttributeId" *ngFor="let item of product.Size">{{item.AttributeValue}}</option>
-        </select> -->
-
-      </div>
-      <div class="col-md-6 py-1 px-1">
-        <strong>
-          Colour
+          {{cakelist.minWeight}}
         </strong>
         <!-- <select class="browser-default custom-select">
           <option [value]="item.AttributeId" *ngFor="let item of product.Color">{{item.AttributeValue}}</option>
         </select> -->
       </div>
+      <div class="col-md-6 py-1 px-1">
+        <strong>
+          حداقل وزن
+        </strong>
+      </div>
+
     </div>
-    <!-- <button class="add-to-cart" (click)="onAddProductToCart()">ADD TO CART</button> -->
-    <!-- <app-add-to-cart [productId]="product.ProductId" [colorId]="colorId" [sizeId]="sizeId" [isHomePage]="true"> -->
-    <app-add-to-cart></app-add-to-cart>
-  </div>
-</div>
