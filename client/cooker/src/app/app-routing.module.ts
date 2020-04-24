@@ -36,14 +36,15 @@ const routes: Routes = [
       { path: 'gallery', component: GalleryComponent },
       { path: 'chocolate', component: ChocolateComponent },
       { path: 'dessert', component: DessertComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
+
 
     ]
   },
   { path: 'guide', component: GuideComponent },
   { path: 'aboutUs', component: AboutUsComponent },
-  { path: 'my-account', component: MyAccountComponent }
+  { path: 'my-account', component: MyAccountComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
 ];
 

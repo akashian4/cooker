@@ -1,14 +1,14 @@
 <div class="conta">
   <!-- Default form login -->
-<form class="text-center border border-light p-5">
+<form [formGroup]="loginForm"  (ngSubmit)="onFormSubmit()" class="text-center border border-light p-5">
 
   <p class="h4 mb-4">ورود</p>
 
   <!-- Email -->
-  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="ایمیل">
+  <input type="text" id="defaultLoginFormUsername" class="form-control mb-4" [formControl]="username" placeholder="نام کاربری">
 
   <!-- Password -->
-  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="رمز عبور">
+  <input type="password" id="defaultLoginFormPassword" [formControl]="password" class="form-control mb-4" placeholder="رمز عبور">
 
   <div class="d-flex justify-content-around">
     <div>
@@ -17,7 +17,7 @@
     </div>
     <div>
       <!-- Forgot password -->
-      <a href="">رمز را فراموش کرده ام</a>
+      <a routerLink="/login">رمز را فراموش کرده ام</a>
     </div>
   </div>
 

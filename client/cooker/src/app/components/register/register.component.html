@@ -1,32 +1,35 @@
 <div class="conta">
   <!-- Default form register -->
-  <form class="text-center border border-light p-3">
+  <form class="text-center border border-light p-3" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" >
 
     <p class="h4 mb-4">ثبت نام</p>
 
     <div class="form-row mb-4">
       <div class="col">
         <!-- First name -->
-        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="نام">
+        <input type="text" id="defaultRegisterFormFirstName" [formControl]="firstname" class="form-control" placeholder="نام">
       </div>
       <div class="col">
         <!-- Last name -->
-        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="نام خانوادگی">
+        <input type="text" id="defaultRegisterFormLastName" [formControl]="lastname" class="form-control" placeholder="نام خانوادگی">
       </div>
     </div>
 
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="ایمیل">
+    <input type="email" [formControl]="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="ایمیل">
+
+    <!-- Username -->
+    <input type="username" [formControl]="username" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="نام کاربری">
 
     <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="رمز عبور"
+    <input type="password" id="defaultRegisterFormPassword" [formControl]="password" class="form-control" placeholder="رمز عبور"
       aria-describedby="defaultRegisterFormPasswordHelpBlock">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
       حداقل 8 کاراکتر
     </small>
 
     <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control mb-5" placeholder="شماره تماس"
+    <input type="text" id="defaultRegisterPhonePassword" [formControl]="phone" class="form-control mb-5" placeholder="شماره تماس"
       aria-describedby="defaultRegisterFormPhoneHelpBlock">
     <!-- <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
       Optional - for two-step authentication
@@ -40,7 +43,7 @@
     </div>
 
     <!-- Sign up button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)='onclick()'>Sign in</button>
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" >Sign in</button>
 
     <!-- Social register -->
     <p>یا ثبت نام با : </p>

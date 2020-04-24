@@ -29,10 +29,16 @@ let registerCustomer = async (req, res) => {
         };
 
         const addCustomer = await dbFunction.createCustomer(customerData);
-        console.log("s13");
+        console.log("sabtnam shod");
+        
+        
         if (addCustomer) {
           res.header('x-auth', addCustomer.token);
-          res.status(200).json({ message: 'Customer registered successfully!' });
+          res.status(200).json({ 
+            message: 'Customer registered successfully!',
+            result: addCustomer,
+            token:addCustomer.token
+           });
         } else {
           res.status(403).json({ message: 'Something went wrong' });
         }

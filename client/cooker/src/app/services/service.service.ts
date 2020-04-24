@@ -2,24 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { Customer } from '../models/Customer';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
-  private currentUserSubject: BehaviorSubject<Customer>;
-  public currentUser: Observable<Customer>;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
   httpOptions: any;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<Customer>(
-      JSON.parse(localStorage.getItem("currentCustomer"))
+    this.currentUserSubject = new BehaviorSubject<User>(
+      JSON.parse(localStorage.getItem("currentUser"))
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  registerCustomer(customer:Customer) {
+  registerUser(User:User) {
     this.httpOptions = {
       headers: new HttpHeaders({
         "x-auth": this.currentUserSubject.value.token
@@ -29,7 +29,7 @@ export class ServiceService {
     return this.http
       .post<any>(
         "api/answer",
-       customer
+       User
       )
       .pipe(
         map(res => {
