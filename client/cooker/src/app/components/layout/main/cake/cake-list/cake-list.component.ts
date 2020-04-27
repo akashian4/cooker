@@ -13,7 +13,7 @@ export class CakeListComponent implements OnInit {
 
 
   constructor() {
-    this.searchString = 'adasd';
+    this.searchString = 'متن پیش فرض جستجو';
     this.cakeList = [
       { cakeId: 1, name: 'کیک 3 ظبقه', description: 'b', primaryImage: 'https://satisho.com/wp-content/uploads/2019/09/tazeen-cake-satisho-9.jpg', secondaryImage: 'd', price: 25000, minWeight: 5 },
       { cakeId: 2, name: 'کیک عدد 6', description: 'b', primaryImage: 'https://satisho.com/wp-content/uploads/2019/09/tazeen-cake-satisho-8.jpg', secondaryImage: 'd', price: 27000, minWeight: 3 },

@@ -75,7 +75,7 @@ let SellerSchema = new Schema({
 });
 
 let CarouselSchema = new Schema({
-    headerText: {
+    xt: {
         type: String,
         default: "hederText",
         required: true
