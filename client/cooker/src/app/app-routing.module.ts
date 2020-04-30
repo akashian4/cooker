@@ -15,6 +15,7 @@ import { ChocolateComponent } from './components/layout/main/chocolate/chocolate
 import { CakeDetailsComponent } from './components/layout/main/cake/cake-details/cake-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CreateCakeComponent } from './components/layout/main/cake/create-cake/create-cake.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
         path: 'cake',
         children: [
           { path: '', component: CakeComponent },
-          { path: 'cake-details/:id', component: CakeDetailsComponent },
+          { path: 'cake-details/:id', component: CakeDetailsComponent }
         ]
       },
       { path: 'cookie', component: CookieComponent },
@@ -36,8 +37,6 @@ const routes: Routes = [
       { path: 'gallery', component: GalleryComponent },
       { path: 'chocolate', component: ChocolateComponent },
       { path: 'dessert', component: DessertComponent },
-
-
     ]
   },
   { path: 'guide', component: GuideComponent },
@@ -45,6 +44,7 @@ const routes: Routes = [
   { path: 'my-account', component: MyAccountComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'create', component: CreateCakeComponent },
 
 ];
 

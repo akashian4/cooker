@@ -28,12 +28,15 @@ import { CakeCardComponent } from './components/layout/main/cake/cake-card/cake-
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { ChocolateComponent } from './components/layout/main/chocolate/chocolate.component';
 import { DessertComponent } from './components/layout/main/dessert/dessert.component';
-
+import {MatStepperModule, MatInputModule, MatButtonModule} from '@angular/material';
 import { CakeDetailsComponent } from './components/layout/main/cake/cake-details/cake-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationService } from './services/authentication.service';
 import { InterceptorService } from './services/interceptor.service';
+import { CreateCakeComponent } from './components/layout/main/cake/create-cake/create-cake.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatRadioModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -58,19 +61,23 @@ import { InterceptorService } from './services/interceptor.service';
     DessertComponent,
     CakeDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateCakeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
+    MatRadioModule,
     FormsModule,
+    MatStepperModule, MatInputModule, MatButtonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgbToastModule,
     ToastrModule.forRoot(),
-    NgxPayPalModule  ],
+    NgxPayPalModule,
+    DragDropModule  ],
   providers: [AuthenticationService,{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })

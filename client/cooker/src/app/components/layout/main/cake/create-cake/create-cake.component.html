@@ -1,0 +1,160 @@
+<div class="container">
+
+  <h5 class="text-center pt-3">کیک خود را بسازید</h5>
+
+
+  <mat-horizontal-stepper labelPosition="bottom" #stepper class="m-5">
+
+    <mat-step [stepControl]="firstFormGroup">
+      <ng-template matStepLabel>تعیین ظاهر کیک</ng-template>
+
+
+      <button  mat-button matStepperNext>بعد</button>
+
+
+      <div class="row">
+        <div class="center col-12 m-2"
+          style="height: 400px;background-color: rgb(108, 234, 236); border-radius: 20px 150px;border-style: groove;">
+          <h5 class="text-center pt-3">.قالب کیک , متن ایجاد شده و اشکال مد نظر خود را داخل کادر زیر وارد کنید</h5>
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="center col-md-4">
+          <H1 class="text-center pt-3 ml-5">متن روی کیک وارد کنید</H1>
+          <hr>
+          <div  style="background-color:rgb(189, 186, 186);">
+            <input placeholder="متن روی کیک وارد کنید" mdbInput mdbValidate id="form8" class="form-control text-center"
+              [(ngModel)]="name" #ctrl="ngModel" required>
+            <h5 cdkDrag class="m-5">{{ name }}</h5>
+          </div>
+        </div>
+
+        <div class="col-md-5" style="margin-left: 10px;">
+          <H1 class="text-center pt-3">قالب کیک خود را انتخاب کنید</H1>
+          <hr>
+          <div style="width: infinity;background-color: rgb(189, 186, 186); margin: 0px 40px;display:  inline-block;">
+            <img src="../../../../assets/g (1).png" class="temp " height="120" alt="" cdkDrag />
+            <img src="../../../../assets/g (2).png" class="temp " height="120" alt="" cdkDrag />
+            <img src="../../../../assets/g (3).png" class="temp " height="120" alt="" cdkDrag />
+            <img src="../../../../assets/g (4).png" class="temp " height="120" alt="" cdkDrag />
+            <img src="../../../../assets/g (5).png" class="temp " height="120" alt="" cdkDrag />
+            <img src="../../../../assets/g (6).png" class="temp " height="120" alt="" cdkDrag />
+            <img src="../../../../assets/g (7).png" class="temp " height="120" alt="" cdkDrag />
+          </div>
+        </div>
+
+        <div class="col-md-2 pt-3">
+          <H1 class="text-center  ml-5 pl-5 ">اشکال</H1>
+          <hr>
+          <div style="width: infinity;background-color:  rgb(69, 69, 104); margin: 0px 40px;display:  inline-block;">
+            <img src="../../../../assets/s (2).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (3).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (4).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (5).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (6).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (8).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (9).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (10).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (12).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (7).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (1).png" class="s" height="120" alt="" cdkDrag />
+            <img src="../../../../assets/s (11).png" class="s" height="120" alt="" cdkDrag />
+
+          </div>
+        </div>
+
+      </div>
+    </mat-step>
+
+
+    <mat-step [stepControl]="secondFormGroup" optional>
+      <ng-template matStepLabel>تعیین طعم کیک</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>قبل</button>
+        <button mat-button matStepperNext>بعد</button>
+      </div>
+
+      <div style="padding: 40px;">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">شکلاتی</mat-radio-button>
+          <mat-radio-button value="2">وانیلی </mat-radio-button>
+          <mat-radio-button value="2">مخمل قرمز</mat-radio-button>
+          <mat-radio-button value="2">سنگ مرمر</mat-radio-button>
+          <mat-radio-button value="2">هویجی</mat-radio-button>
+          <mat-radio-button value="2">لیمویی (لیمو شیرین)</mat-radio-button>
+          <mat-radio-button value="2">نارگیلی</mat-radio-button>
+          <mat-radio-button value="2">نسکافه</mat-radio-button>
+          <mat-radio-button value="2">موزی</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+
+
+    </mat-step>
+
+
+    <mat-step [stepControl]="secondFormGroup" optional>
+      <ng-template matStepLabel>تعیین رنگ کیک</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>قبل</button>
+        <button mat-button matStepperNext>بعد</button>
+      </div>
+
+      <div style="padding: 40px;">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">زرد</mat-radio-button>
+          <mat-radio-button value="2">سبز </mat-radio-button>
+          <mat-radio-button value="2"> قرمز</mat-radio-button>
+          <mat-radio-button value="2">ابی</mat-radio-button>
+          <mat-radio-button value="2">صورتی</mat-radio-button>
+          <mat-radio-button value="2">بنفش</mat-radio-button>
+          <mat-radio-button value="2">سفید</mat-radio-button>
+          <mat-radio-button value="2">سیاه</mat-radio-button>
+          <mat-radio-button value="2">نارنجی</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+
+
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" optional>
+      <ng-template matStepLabel>تعیین تزیین روی کیک</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>قبل</button>
+        <button mat-button matStepperNext>بعد</button>
+      </div>
+
+      <div style="padding: 40px;">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">پودر کاکایو</mat-radio-button>
+          <mat-radio-button value="2">پودر نارگیل </mat-radio-button>
+          <mat-radio-button value="2"> ترافل</mat-radio-button>
+          <mat-radio-button value="2">ژل بریلو</mat-radio-button>
+          <mat-radio-button value="2">تزیین لازم نیست</mat-radio-button>
+
+        </mat-radio-group>
+      </div>
+
+
+
+
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>سفارش شما با موفقیت ثبت شد</p>
+      <div>
+        <button mat-button matStepperPrevious>قبل</button>
+        <button mat-button (click)="stepper.reset()">ویرایش</button>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+
+</div>
