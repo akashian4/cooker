@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 
   <h5 class="text-center pt-3">کیک خود را بسازید</h5>
 
@@ -15,7 +15,7 @@
       <div class="row">
         <div class="center col-12 m-2"
           style="height: 400px;background-color: rgb(108, 234, 236); border-radius: 20px 150px;border-style: groove;">
-          <h5 class="text-center pt-3">.قالب کیک , متن ایجاد شده و اشکال مد نظر خود را داخل کادر زیر وارد کنید</h5>
+          <h5 class="text-center pt-3">.قالب کیک , متن ایجاد شده و اشکال مد نظر خود را داخل کادر زیر بکشید</h5>
           <hr>
         </div>
       </div>
@@ -157,4 +157,54 @@
 
   </mat-horizontal-stepper>
 
+</div> -->
+
+<div class="p-5 " id="container">
+
+  <div class="box">
+
+    <div class="my-4 primary">
+      s
+    </div>
+
+
+    <div class=" text-right d-flex">
+      <button type="button" mdbBtn color="success" mdbWavesEffect class="mr-auto ml-5">Finish</button>
+      <div>
+        <mdb-badge color="amber darken-2">برخی موارد اجباری است</mdb-badge>
+        <h3 style="display: inline-flex;margin-left: 10px;color: white;">
+          پس از تکمیل گام های زیر برروی دکمه مقایل کیک کنید
+        </h3>
+      </div>
+    </div>
+
+
+
+
+    <mat-tab-group animationDuration="700ms">
+      <!-- #enddocregion slow-animation-duration -->
+      <mat-tab label=" شکل قالب کیک">
+        <mdb-badge color="red">اجباری</mdb-badge>
+        Content 1
+      </mat-tab>
+      <mat-tab label="رنگ زمینه کیک">Content 2</mat-tab>
+      <mat-tab label="طرح کیک">Content 3</mat-tab>
+      <mat-tab label="افزودن تصویر">
+
+        <!-- <button type="button" mdbBtn color="primary" mdbWavesEffect class="mr-auto ml-5" (click)="add()">add
+          picture</button> -->
+
+        <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+      </mat-tab>
+      <mat-tab label="تزيینات اضافه">Content 3</mat-tab>
+      <mat-tab label="محتویات داخل کیک">Content 3</mat-tab>
+      <mat-tab label="طعم اسفنج">Content 3</mat-tab>
+      <mat-tab label="وزن کیک">
+        
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
 </div>
