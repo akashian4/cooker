@@ -44,7 +44,10 @@ const routes: Routes = [
   { path: 'my-account', component: MyAccountComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'create', component: CreateCakeComponent },
+  {
+    path: 'create',
+    component: CreateCakeComponent
+  },
 
 ];
 

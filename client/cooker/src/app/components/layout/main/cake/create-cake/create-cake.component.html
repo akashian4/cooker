@@ -1,175 +1,75 @@
-<!-- <div class="container">
+<div class="p-4 " id="container">
+  <div class="box  p-3">
 
-  <h5 class="text-center pt-3">کیک خود را بسازید</h5>
+    <div class=" text-right d-flex  p-3">
+      <button type="button" class="mr-auto ml-5" mdbBtn color="success" rounded="true" data-toggle="modal"
+        data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>اتمام سفارش</button>
+
+      <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+          <!--Content-->
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+              <p class="heading lead">ثبت نهایی سفارس</p>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                <span aria-hidden="true" class="white-text">&times;</span>
+              </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="text-right">
+                <h5>.در صورت تایید سفارش خود بر روی دکمه پایان سفارش کلیک کنید</h5>
+                <hr>
+                <div class="row m-3">
+                  <p class="col-6 a"> شکل قالب کیک : {{imgselectedname}}</p>
+                  <p class="col-6 a"> رنگ قالب کیک : {{colorname}}</p>
+                  <p class="col-6 a"> طرح کیک : {{tarhname}}</p>
+                  <p class="col-6 a"> عرض طرح کیک : {{tarhwidth}}</p>
+                  <p class="col-6 a"> طول طرح کیک : {{tarhheight}}</p>
+                  <p class="col-6 a "> عرض عکس ارسالی : {{width}}</p>
+                  <p class="col-6 a "> طول عکس ارسالی : {{height}}</p>
+                  <p class="col-6 a "> متن روی کیک : {{name}}</p>
+                  <p class="col-6 a"> رنگ متن روی کیک : {{favoritecolor}}</p>
+                  <p class="col-6 a"> طعم کیک اسفنجی : {{selectedTaste}}</p>
+                  <p class="col-12 a"> وزن کیک : {{selectedWeight}}</p>
+                  <div class="col-6 a">
+                    <p > : محتویات روی کیک </p>
+                    <ul *ngFor="let i of selecteddetails">
+                      <li > {{i}}</li>
+                    </ul>
+                  </div>
+                  <div class="col-6 a">
+                    <p> : محتویات داخل کیک </p>
+                    <ul *ngFor="let i of selectedDetails">
+                      <li>{{i}}</li>
+                    </ul>
+                  </div>
 
 
-  <mat-horizontal-stepper labelPosition="bottom" #stepper class="m-5">
+                </div>
 
-    <mat-step [stepControl]="firstFormGroup">
-      <ng-template matStepLabel>تعیین ظاهر کیک</ng-template>
+              </div>
+            </div>
 
-
-      <button  mat-button matStepperNext>بعد</button>
-
-
-      <div class="row">
-        <div class="center col-12 m-2"
-          style="height: 400px;background-color: rgb(108, 234, 236); border-radius: 20px 150px;border-style: groove;">
-          <h5 class="text-center pt-3">.قالب کیک , متن ایجاد شده و اشکال مد نظر خود را داخل کادر زیر بکشید</h5>
-          <hr>
-        </div>
-      </div>
-
-      <div class="row">
-
-        <div class="center col-md-4">
-          <H1 class="text-center pt-3 ml-5">متن روی کیک وارد کنید</H1>
-          <hr>
-          <div  style="background-color:rgb(189, 186, 186);">
-            <input placeholder="متن روی کیک وارد کنید" mdbInput mdbValidate id="form8" class="form-control text-center"
-              [(ngModel)]="name" #ctrl="ngModel" required>
-            <h5 cdkDrag class="m-5">{{ name }}</h5>
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+              <a type="button" routerLink="/" mdbBtn color="success" class="waves-effect" mdbWavesEffect>پایان سفارش
+                <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
+              </a>
+              <!-- <a type="button" mdbBtn color="success" outline="true" class="waves-effect" mdbWavesEffect
+                (click)="frame.hide()">No, thanks</a> -->
+            </div>
           </div>
+          <!--/.Content-->
         </div>
-
-        <div class="col-md-5" style="margin-left: 10px;">
-          <H1 class="text-center pt-3">قالب کیک خود را انتخاب کنید</H1>
-          <hr>
-          <div style="width: infinity;background-color: rgb(189, 186, 186); margin: 0px 40px;display:  inline-block;">
-            <img src="../../../../assets/g (1).png" class="temp " height="120" alt="" cdkDrag />
-            <img src="../../../../assets/g (2).png" class="temp " height="120" alt="" cdkDrag />
-            <img src="../../../../assets/g (3).png" class="temp " height="120" alt="" cdkDrag />
-            <img src="../../../../assets/g (4).png" class="temp " height="120" alt="" cdkDrag />
-            <img src="../../../../assets/g (5).png" class="temp " height="120" alt="" cdkDrag />
-            <img src="../../../../assets/g (6).png" class="temp " height="120" alt="" cdkDrag />
-            <img src="../../../../assets/g (7).png" class="temp " height="120" alt="" cdkDrag />
-          </div>
-        </div>
-
-        <div class="col-md-2 pt-3">
-          <H1 class="text-center  ml-5 pl-5 ">اشکال</H1>
-          <hr>
-          <div style="width: infinity;background-color:  rgb(69, 69, 104); margin: 0px 40px;display:  inline-block;">
-            <img src="../../../../assets/s (2).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (3).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (4).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (5).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (6).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (8).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (9).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (10).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (12).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (7).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (1).png" class="s" height="120" alt="" cdkDrag />
-            <img src="../../../../assets/s (11).png" class="s" height="120" alt="" cdkDrag />
-
-          </div>
-        </div>
-
-      </div>
-    </mat-step>
-
-
-    <mat-step [stepControl]="secondFormGroup" optional>
-      <ng-template matStepLabel>تعیین طعم کیک</ng-template>
-      <div>
-        <button mat-button matStepperPrevious>قبل</button>
-        <button mat-button matStepperNext>بعد</button>
-      </div>
-
-      <div style="padding: 40px;">
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">شکلاتی</mat-radio-button>
-          <mat-radio-button value="2">وانیلی </mat-radio-button>
-          <mat-radio-button value="2">مخمل قرمز</mat-radio-button>
-          <mat-radio-button value="2">سنگ مرمر</mat-radio-button>
-          <mat-radio-button value="2">هویجی</mat-radio-button>
-          <mat-radio-button value="2">لیمویی (لیمو شیرین)</mat-radio-button>
-          <mat-radio-button value="2">نارگیلی</mat-radio-button>
-          <mat-radio-button value="2">نسکافه</mat-radio-button>
-          <mat-radio-button value="2">موزی</mat-radio-button>
-        </mat-radio-group>
       </div>
 
 
 
-
-    </mat-step>
-
-
-    <mat-step [stepControl]="secondFormGroup" optional>
-      <ng-template matStepLabel>تعیین رنگ کیک</ng-template>
-      <div>
-        <button mat-button matStepperPrevious>قبل</button>
-        <button mat-button matStepperNext>بعد</button>
-      </div>
-
-      <div style="padding: 40px;">
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">زرد</mat-radio-button>
-          <mat-radio-button value="2">سبز </mat-radio-button>
-          <mat-radio-button value="2"> قرمز</mat-radio-button>
-          <mat-radio-button value="2">ابی</mat-radio-button>
-          <mat-radio-button value="2">صورتی</mat-radio-button>
-          <mat-radio-button value="2">بنفش</mat-radio-button>
-          <mat-radio-button value="2">سفید</mat-radio-button>
-          <mat-radio-button value="2">سیاه</mat-radio-button>
-          <mat-radio-button value="2">نارنجی</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-
-
-
-    </mat-step>
-
-    <mat-step [stepControl]="secondFormGroup" optional>
-      <ng-template matStepLabel>تعیین تزیین روی کیک</ng-template>
-      <div>
-        <button mat-button matStepperPrevious>قبل</button>
-        <button mat-button matStepperNext>بعد</button>
-      </div>
-
-      <div style="padding: 40px;">
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">پودر کاکایو</mat-radio-button>
-          <mat-radio-button value="2">پودر نارگیل </mat-radio-button>
-          <mat-radio-button value="2"> ترافل</mat-radio-button>
-          <mat-radio-button value="2">ژل بریلو</mat-radio-button>
-          <mat-radio-button value="2">تزیین لازم نیست</mat-radio-button>
-
-        </mat-radio-group>
-      </div>
-
-
-
-
-    </mat-step>
-
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>سفارش شما با موفقیت ثبت شد</p>
-      <div>
-        <button mat-button matStepperPrevious>قبل</button>
-        <button mat-button (click)="stepper.reset()">ویرایش</button>
-      </div>
-    </mat-step>
-
-  </mat-horizontal-stepper>
-
-</div> -->
-
-<div class="p-5 " id="container">
-
-  <div class="box">
-
-    <div class="my-4 primary">
-      s
-    </div>
-
-
-    <div class=" text-right d-flex">
-      <button type="button" mdbBtn color="success" mdbWavesEffect class="mr-auto ml-5">Finish</button>
       <div>
         <mdb-badge color="amber darken-2">برخی موارد اجباری است</mdb-badge>
         <h3 style="display: inline-flex;margin-left: 10px;color: white;">
@@ -180,31 +80,256 @@
 
 
 
+    <div class="row">
 
-    <mat-tab-group animationDuration="700ms">
-      <!-- #enddocregion slow-animation-duration -->
-      <mat-tab label=" شکل قالب کیک">
-        <mdb-badge color="red">اجباری</mdb-badge>
-        Content 1
-      </mat-tab>
-      <mat-tab label="رنگ زمینه کیک">Content 2</mat-tab>
-      <mat-tab label="طرح کیک">Content 3</mat-tab>
-      <mat-tab label="افزودن تصویر">
+      <div class="col-lg-5 col-12">
+        <div class="my-2 primary d-flex flex-column justify-content-center align-items-center">
+          <img src="/assets/shape/{{imgselected}}{{color}}.png" width="600px" height="600px" alt=""
+            style="position: absolute;">
 
-        <!-- <button type="button" mdbBtn color="primary" mdbWavesEffect class="mr-auto ml-5" (click)="add()">add
-          picture</button> -->
+          <img cdkDrag [src]="imgURL" height="{{height}}" width="{{width}}" *ngIf="imgURL"
+            style="z-index: 20;position: absolute;cursor: move;">
 
-        <input #file type="file" accept='image/*' (change)="preview(file.files)" />
-        <img [src]="imgURL" height="200" *ngIf="imgURL">
+          <img cdkDrag src="/assets/tarh/{{tarh}}.png" height="{{tarhheight}}" width="{{tarhwidth}}" *ngIf="tarh"
+            style="z-index: 20;position: absolute;cursor: move;">
 
-      </mat-tab>
-      <mat-tab label="تزيینات اضافه">Content 3</mat-tab>
-      <mat-tab label="محتویات داخل کیک">Content 3</mat-tab>
-      <mat-tab label="طعم اسفنج">Content 3</mat-tab>
-      <mat-tab label="وزن کیک">
-        
-      </mat-tab>
-    </mat-tab-group>
+          <h3 cdkDrag [style.color]="getColor(favoritecolor)" [ngStyle]="{'font-size':getfontsize(fontsize)}"
+            class="m-5" style="cursor: move;z-index: 22;">{{ name }}</h3>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-7 col-12">
+
+        <mat-horizontal-stepper labelPosition="bottom" #stepper class="mx-2">
+
+          <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel> شکل قالب کیک
+              <br>
+              <mdb-badge color="red">اجباری</mdb-badge>
+            </ng-template>
+            <button mat-button matStepperNext>بعد</button>
+            <!-- <h5 class="text-center pt-3"> قالب کیک خود را انتخاب کنید</h5> -->
+            <hr>
+            <ul class="list-group list-group-horizontal" style="overflow-y: hidden;overflow-x: scroll;">
+              <li *ngFor="let item of imgList" (click)=onimgselected(item)>
+                <div class="d-flex flex-column justify-content-center align-items-center p-4 m-3" id="card"
+                  [ngClass]="{'activee': s==item.id}">
+                  <img src="/assets/shape/{{item.name}}{{color}}.png" width="200px" height="200px" alt="">
+                  <p class="my-2">{{item.n}}</p>
+                </div>
+              </li>
+            </ul>
+
+
+          </mat-step>
+
+          <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel> رنگ زمینه
+              <br>
+              <mdb-badge color="red">اجباری</mdb-badge>
+            </ng-template>
+            <div>
+              <button mat-button matStepperPrevious>قبل</button>
+              <button mat-button matStepperNext>بعد</button>
+            </div>
+
+            <!-- <h5 class="text-center pt-3">رنگ زمینه کیک خود را انتخاب کنید</h5> -->
+            <hr>
+            <ul class="list-group list-group-horizontal" style="overflow-y: hidden;overflow-x: scroll;">
+              <li *ngFor="let item of colorList" (click)=oncolor(item)>
+                <div class="d-flex flex-column justify-content-center align-items-center p-4 m-3" id="card"
+                  [ngClass]="{'activee': color==item.id}">
+                  <img src="/assets/shape/{{imgselected}}{{item.id}}.png" width="200px" height="200px" alt="">
+                  <p class="my-2">{{item.name}}</p>
+                </div>
+              </li>
+            </ul>
+
+
+          </mat-step>
+
+
+          <mat-step [stepControl]="secondFormGroup">
+            <ng-template matStepLabel>طرح کیک
+              <br>
+              <mdb-badge color="green">اختیاری</mdb-badge>
+            </ng-template>
+            <div>
+              <button mat-button matStepperPrevious>قبل</button>
+              <button mat-button matStepperNext>بعد</button>
+            </div>
+
+            <!-- <h5 class="text-center pt-3">طرح دلخواه کیک خود را انتخاب کنید</h5> -->
+            <hr>
+            <ul class="list-group list-group-horizontal" style="overflow-y: hidden;overflow-x: scroll;">
+              <li *ngFor="let item of tarhList" (click)=ontarh(item)>
+                <div class="d-flex flex-column justify-content-center align-items-center p-4 m-3" id="card"
+                  [ngClass]="{'activee': tarh==item.id}">
+                  <img src="/assets/tarh/{{item.id}}.png" width="200px" height="200px" alt="">
+                  <p class="my-2">{{item.name}}</p>
+                </div>
+              </li>
+            </ul>
+            <div class="d-flex justify-content-center align-items-center" *ngIf="tarh">
+              <div class="md-form mx-2">
+                <input type="number" value="{{tarhwidth}}" (change)="tarhwidthchange($event)" class="form-control"
+                  id="numberInputEx" mdbInput>
+                <label for="numberInputEx">عرض</label>
+              </div>
+              <div class="md-form mx-2">
+                <input type="number" (change)="tarhheightchange($event)" value="{{tarhheight}}" class="form-control"
+                  id="numberInputEx" mdbInput>
+                <label for="numberInputEx">طول</label>
+              </div>
+              <h5 class=" ml-auto">طول و عرض طرح خود را مشخص کنید</h5>
+            </div>
+
+          </mat-step>
+
+
+          <mat-step [stepControl]="secondFormGroup">
+            <ng-template matStepLabel>افزودن تصویر
+              <br>
+              <mdb-badge color="green">اختیاری</mdb-badge>
+            </ng-template>
+            <div>
+              <button mat-button matStepperPrevious>قبل</button>
+              <button mat-button matStepperNext>بعد</button>
+            </div>
+            <hr>
+            <div class="row">
+              <input #file type="file" accept='image/*' (change)="preview(file.files)" class="m-auto" />
+              <div class="md-form mx-2" *ngIf="imgURL">
+                <input type="number" value="{{width}}" (change)="widthchange($event)" class="form-control"
+                  id="numberInputEx" mdbInput>
+                <label for="numberInputEx">عرض</label>
+              </div>
+              <div class="md-form mx-2" *ngIf="imgURL">
+                <input type="number" (change)="heightchange($event)" value="{{height}}" class="form-control"
+                  id="numberInputEx" mdbInput>
+                <label for="numberInputEx">طول</label>
+              </div>
+
+
+            </div>
+
+
+          </mat-step>
+
+
+          <mat-step [stepControl]="secondFormGroup">
+            <ng-template matStepLabel>متن روی کیک
+              <br>
+              <mdb-badge color="green">اختیاری</mdb-badge>
+            </ng-template>
+            <div>
+              <button mat-button matStepperPrevious>قبل</button>
+              <button mat-button matStepperNext>بعد</button>
+            </div>
+
+            <div class="row">
+
+              <div class="col-6">
+
+                <H3 class="text-center pt-3 ml-5">متن روی کیک وارد کنید</H3>
+                <input placeholder="متن روی کیک وارد کنید" mdbInput mdbValidate id="form8"
+                  class="form-control text-center" [(ngModel)]="name" #ctrl="ngModel" required>
+
+                <br>
+                <hr>
+
+                <H3 class="text-center pt-3 ml-5">سایز متن وارد کنید</H3>
+                <input type="number" placeholder="سایز متن وارد کنید" mdbInput mdbValidate id="form8"
+                  class="form-control text-center" [(ngModel)]="fontsize" #ctrl="ngModel" required>
+
+              </div>
+
+              <div class="col-6">
+                <H3 class="text-center pt-3 ml-5">رنگ متن وارد کنید</H3>
+                <mat-radio-group class="px-5" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                  [(ngModel)]="favoritecolor">
+                  <mat-radio-button class="example-radio-button" *ngFor="let c of colorlist" [value]="c"
+                    [style.background-color]="getColor(c)">
+
+                    <!-- <h4 > {{c}}</h4> -->
+                  </mat-radio-button>
+                </mat-radio-group>
+                <!-- <h4 [ngClass]="{
+                  'red1':favoritecolor === 'قرمز',
+                  'blue1':favoritecolor === 'ابی'
+                }">Your favorite season is: {{favoritecolor}}</h4> -->
+              </div>
+            </div>
+
+          </mat-step>
+
+
+          <mat-step [stepControl]="secondFormGroup">
+            <ng-template matStepLabel>جزییات تکمیلی
+              <br>
+              <mdb-badge color="red">اجباری</mdb-badge>
+            </ng-template>
+
+            <div class="row">
+
+              <div class="col-5 border border-dark m-3 rounded">
+                <mdb-badge color="green">اختیاری</mdb-badge>
+                <H3 class="text-center pt-3 ml-5">محتویات روی کیک</H3>
+                <mat-selection-list #shoes>
+                  <mat-list-option *ngFor="let details of detailslist" (click)=onSelectdetails(details)>
+                    {{details}}
+                  </mat-list-option>
+                </mat-selection-list>
+              </div>
+
+              <div class="col-5 border border-dark m-3 rounded">
+                <mdb-badge color="red">اجباری</mdb-badge>
+                <H3 class="text-center pt-3 ml-5">محتویات داخل کیک</H3>
+                <mat-selection-list>
+                  <mat-list-option *ngFor="let d of DetailsList" (click)=onSelectDetails(d)>
+                    {{d.name}}
+                  </mat-list-option>
+                </mat-selection-list>
+              </div>
+
+              <div class="col-5 border border-dark m-3 rounded">
+                <mdb-badge color="red">اجباری</mdb-badge>
+                <H3 class="text-center pt-3 ml-5">وزن کیک</H3>
+                <mat-radio-group class="px-5" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                  [(ngModel)]="f">
+                  <mat-radio-button class="example-radio-button" *ngFor="let w of weightlist" (click)=onSelectWeight(w)>
+                    {{w.name}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <div class="col-5 border border-dark m-3 rounded">
+                <mdb-badge color="red">اجباری</mdb-badge>
+                <H3 class="text-center pt-3 ml-5">طعم اسفنج کیک</H3>
+                <mat-radio-group class="px-5" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                  [(ngModel)]="ff">
+                  <mat-radio-button class="example-radio-button" *ngFor="let t of TasteList" (click)=onSelectTaste(t)>
+                    {{t.name}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+            </div>
+
+          </mat-step>
+
+
+        </mat-horizontal-stepper>
+
+
+
+      </div>
+
+    </div>
+
+
 
   </div>
 </div>

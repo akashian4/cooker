@@ -47,29 +47,29 @@
 
 
 
-#container{
-  height: 100%;
+#container {
+  min-height: 100%;
   background-image: url("src/assets/5.jpg");
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-color: rgb(107, 59, 25);
+  background-color: rgba(83, 4, 4, 0.966);
 }
 
 
 
-
-
-.mat-tab-group {
-  margin: 30px;
-  background-color: rgba(240, 232, 194, 0.623);
-  border-radius: 30px;
-  padding: 20px;
+.box {
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.39);
+  border-radius: 10px;
 }
+
+
 
 .primary{
-  width: 60%;
-  height: 300px;
+  width: 38vw;
+  height: 75vh;
   margin: auto;
   background-color: rgba(160, 117, 10, 0.397);
   border-radius: 30px;
@@ -78,8 +78,80 @@
 
 
 
-.box{
-  background-color: rgba(0, 0, 0, 0.39);
-  padding: 25px;
-  border-radius: 40px;
+.mat-tab-group {
+  margin: 30px 10px;
+  background-color: rgba(240, 232, 194, 0.527);
+  border-radius: 30px;
+  padding: 10px;
+}
+
+#card{
+  background-color:rgba(78, 78, 78, 0.678);
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+#card:hover{
+  background-color: rgba(101, 215, 243, 0.603);
+}
+
+li{
+  list-style: none;
+}
+
+mat-horizontal-stepper{
+  background-color: rgba(224, 208, 205, 0.726);
+  border: 1px solid gray;
+  border-radius: 30px;
+}
+
+
+.activee{
+  background-color: rgb(243, 177, 101)  !important;
+  border: 2px solid rgb(20, 194, 4) !important;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  border-radius: 20px;
+}
+/*
+.red1{
+  color: red;
+}
+.blue1{
+  color: blue;
+}
+.green1{
+  color: green;
+}
+.yellow1{
+  color: yellow;
+}
+.black1{
+  color: black;
+}
+.white1{
+  color: white;
+}
+.gray1{
+  color: gray;
+}
+.orange1{
+  color: orange;
+}
+.pink1{
+  color: pink;
+} */
+
+.a{
+  border: 1px outset;
 }

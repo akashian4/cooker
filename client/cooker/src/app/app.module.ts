@@ -65,7 +65,6 @@ import {MatTabsModule} from '@angular/material/tabs';
     LoginComponent,
     RegisterComponent,
     CreateCakeComponent,
-
   ],
   imports: [
     BrowserModule,
