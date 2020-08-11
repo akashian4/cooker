@@ -37,9 +37,9 @@
                   <p class="col-6 a"> طعم کیک اسفنجی : {{selectedTaste}}</p>
                   <p class="col-12 a"> وزن کیک : {{selectedWeight}}</p>
                   <div class="col-6 a">
-                    <p > : محتویات روی کیک </p>
+                    <p> : محتویات روی کیک </p>
                     <ul *ngFor="let i of selecteddetails">
-                      <li > {{i}}</li>
+                      <li> {{i}}</li>
                     </ul>
                   </div>
                   <div class="col-6 a">
@@ -48,7 +48,7 @@
                       <li>{{i}}</li>
                     </ul>
                   </div>
-
+                  <!-- <p class="col-12 a"> زمان تحویل : {{selectedWeight}} ساعت {{selectedTime}}</p> -->
 
                 </div>
 
@@ -240,7 +240,7 @@
                 <br>
                 <hr>
 
-                <H3 class="text-center pt-3 ml-5">سایز متن وارد کنید</H3>
+                <H3 class="text-center pt-3 ml-5">سایز متن </H3>
                 <input type="number" placeholder="سایز متن وارد کنید" mdbInput mdbValidate id="form8"
                   class="form-control text-center" [(ngModel)]="fontsize" #ctrl="ngModel" required>
 
@@ -316,6 +316,19 @@
                 </mat-radio-group>
               </div>
 
+              <div class="col-5 border border-dark m-3 rounded">
+                <mat-form-field>
+                  <input (dateChange)="addEvent($event)" matInput [matDatepicker]="picker6"
+                    placeholder="تاریخ تحویل" [(ngModel)]="date">
+                  <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                  <mat-datepicker #picker6></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div class="col-5 border border-dark m-3 rounded">
+                <button (click)="open()" class=" btn btn-success text-dark">ساعت چند؟؟؟</button>
+                <input type="time" value="{{selectedTime}}" class=" btn btn-secondary text-dark">
+              </div>
             </div>
 
           </mat-step>

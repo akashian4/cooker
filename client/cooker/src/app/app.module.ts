@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { HomeComponent } from './components/layout/main/home/home.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 // tslint:disable-next-line: max-line-length
 import { ConfectionarysAccessoriesComponent } from './components/layout/main/confectionarys-accessories/confectionarys-accessories.component';
 import { CookieComponent } from './components/layout/main/cookie/cookie.component';
@@ -38,7 +38,11 @@ import { InterceptorService } from './services/interceptor.service';
 import { CreateCakeComponent } from './components/layout/main/cake/create-cake/create-cake.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatRadioModule } from '@angular/material';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from "@angular/material";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MaterialPersianDateAdapter, PERSIAN_DATE_FORMATS } from "./sharead/material.persian-date.adapter";
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 @NgModule({
   declarations: [
@@ -69,6 +73,7 @@ import {MatTabsModule} from '@angular/material/tabs';
   imports: [
     BrowserModule,
     MatTabsModule,
+    MatDatepickerModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
@@ -81,8 +86,14 @@ import {MatTabsModule} from '@angular/material/tabs';
     ToastrModule.forRoot(),
     NgxPayPalModule,
     MatListModule,
+    AmazingTimePickerModule,
     DragDropModule],
-  providers: [AuthenticationService, { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
+  providers: [
+    AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    { provide: DateAdapter, useClass: MaterialPersianDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: PERSIAN_DATE_FORMATS }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

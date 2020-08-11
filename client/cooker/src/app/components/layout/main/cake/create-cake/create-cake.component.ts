@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AmazingTimePickerService } from 'amazing-time-picker';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-create-cake',
@@ -7,7 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./create-cake.component.css']
 })
 export class CreateCakeComponent implements OnInit {
-  constructor() { }
+  constructor(private atp: AmazingTimePickerService) { }
   ngOnInit() { }
 
 
@@ -15,7 +16,7 @@ export class CreateCakeComponent implements OnInit {
   imgselected;
   imgselectedname;
   color = 0;
-  colorname="آبی کمرنگ";
+  colorname = "آبی کمرنگ";
   imgList = [
     { id: 1, name: 'mor', n: 'مربع' },
     { id: 2, name: 'mos', n: 'مستطیل' },
@@ -240,4 +241,34 @@ export class CreateCakeComponent implements OnInit {
     // this.selectedDetails = item.name;
   }
 
+
+
+
+  public selectedTime = '18:33';
+  public selectedDate ;
+  // jsonDate = "2018-01-08T20:21:29.4674496";
+  date = new FormControl(new Date());
+  serializedDate = new FormControl((new Date()).toISOString());
+
+  addEvent($event){
+    console.log(this.date.value);
+    console.log(this.serializedDate.value);
+  }
+
+  open() {
+    const amazingTimePicker = this.atp.open({
+      time: this.selectedTime,
+      locale: 'fa',
+      theme: 'material-blue',
+      arrowStyle: {
+        background: 'red',
+        color: 'white'
+      }
+    });
+    amazingTimePicker.afterClose().subscribe(time => {
+      this.selectedTime = time;
+      console.log(this.selectedTime);
+
+    });
+  }
 }
